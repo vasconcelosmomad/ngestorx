@@ -1,0 +1,97 @@
+DOCUMENTAÇÃO DE CONFIGURAÇÃO GIT E DEPLOY PARA GITHUB
+
+1. CONFIGURAÇÃO INICIAL
+----------------------
+1.1 Instalação do Git
+- Verifique se o Git está instalado: git --version
+- Se não estiver instalado: sudo apt install git
+
+1.2 Configuração do Usuário Git
+- Configure seu nome: git config --global user.name "seu_nome"
+- Configure seu email: git config --global user.email "seu_email"
+
+2. CRIAÇÃO DO REPOSITÓRIO
+------------------------
+2.1 Criar novo repositório no GitHub
+- Acesse: https://github.com/new
+- Nome do repositório: nGestorX
+- Descrição: Seu projeto Laravel com sistema de tickets e chat em tempo real
+- Marque como público ou privado
+- Clique em "Create repository"
+
+3. CONFIGURAÇÃO DO PROJETO
+-------------------------
+3.1 Inicializar Git no projeto
+```bash
+cd /home/vasconcelos/my-projects/ngestorx
+rm -rf .git  # Remove repositório corrompido se existir
+git init
+```
+
+3.2 Configurar remote do GitHub
+```bash
+git remote add origin https://github.com/vasconcelosmomad/nGestorX.git
+```
+
+3.3 Adicionar e commitar arquivos
+```bash
+git add .
+git commit -m "Primeiro commit do projeto nGestorX"
+```
+
+4. AUTENTICAÇÃO COM GITHUB
+-------------------------
+4.1 Gerar token de acesso
+- Acesse: https://github.com/settings/tokens
+- Clique em "Generate new token (classic)"
+- Dê um nome ao token
+- Marque a permissão "repo"
+- Clique em "Generate token"
+- Copie o token gerado
+
+4.2 Fazer push para o GitHub
+```bash
+git push https://seu_token@github.com/vasconcelosmomad/nGestorX.git main
+```
+
+5. SCRIPT DE AUTOMAÇÃO
+--------------------
+5.1 Script de configuração
+- Local: /home/vasconcelos/my-projects/ngestorx/scripts/setup-github.sh
+- Permissões: chmod +x setup-github.sh
+- Execução: ./setup-github.sh
+
+6. ERROS COMUNS E SOLUÇÕES
+-------------------------
+6.1 Erro: "Support for password authentication was removed"
+- Solução: Use token de acesso pessoal ao invés de senha
+
+6.2 Erro: "Repository not found"
+- Solução: Verifique se o repositório existe no GitHub e se o nome está correto
+
+6.3 Erro: "Write access to repository not granted"
+- Solução: Verifique se o token tem a permissão "repo" configurada
+
+7. SCRIPTS ÚTEIS
+---------------
+7.1 Deploy para VPS
+- Local: /home/vasconcelos/my-projects/ngestorx/scripts/deploy-vps.sh
+- Função: Automatiza o deploy do projeto para VPS
+
+7.2 Webhook
+- Local: /home/vasconcelos/my-projects/ngestorx/configurar-webhook.sh
+- Função: Configura webhooks para atualizações automáticas
+
+8. RECOMENDAÇÕES
+-------------
+- Sempre mantenha backup dos arquivos importantes
+- Verifique as permissões do token antes de fazer push
+- Mantenha o repositório atualizado com commits regulares
+- Documente todas as alterações importantes
+
+9. ATUALIZAÇÕES FUTURAS
+----------------------
+- Adicionar suporte para SSH
+- Implementar CI/CD
+- Adicionar testes automatizados
+- Implementar branch protection rules

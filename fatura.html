@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatura - Ngestor</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @media print {
+      body {
+        background: white !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      @page {
+        size: A4;
+        margin: 20mm;
+      }
+    }
+  </style>
+  <script>
+    function printInvoice() {
+      window.print();
+    }
+
+    function saveInvoice() {
+      alert('Fatura salva com sucesso! (Simulação)');
+    }
+  </script>
+</head>
+<body class="bg-gray-100 print:bg-white text-sm text-gray-900">
+  <div class="max-w-4xl mx-auto bg-white shadow-md print:shadow-none rounded-md print:rounded-none overflow-hidden my-6 p-6 print:p-0">
+    
+    <!-- Cabeçalho com ondulação -->
+    <div class="relative bg-blue-700 text-white px-6 py-6 rounded-t-md print:rounded-none">
+      <div class="flex justify-between items-start">
+        <div>
+          <h1 class="text-2xl font-bold">NGESTOR</h1>
+          <p class="text-sm opacity-80">Integração Inteligente para Gestão Empresarial</p>
+        </div>
+        <div class="text-right">
+          <h2 class="text-xl font-semibold">FATURA</h2>
+          <input type="text" class="bg-transparent text-white text-xl font-semibold border-0 focus:outline-none" value="NGT-2024-001" />
+        </div>
+      </div>
+      <!-- SVG ondulado -->
+      <svg class="absolute bottom-0 left-0 w-full h-6 text-white" viewBox="0 0 1440 320" fill="currentColor" preserveAspectRatio="none">
+        <path d="M0,224L48,213.3C96,203,192,181,288,192C384,203,480,245,576,240C672,235,768,181,864,176C960,171,1056,213,1152,229.3C1248,245,1344,235,1392,229.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+
+    <!-- Informações do emissor e cliente -->
+    <div class="grid grid-cols-2 gap-8 mt-8 px-6">
+      <div>
+        <h3 class="font-semibold text-gray-700 mb-2">DE</h3>
+        <p class="font-medium">Ngestor Solutions</p>
+        <p>CNPJ: XX.XXX.XXX/0001-XX</p>
+        <p>contato@ngestor.com.br</p>
+        <p>+55 (11) XXXX-XXXX</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-700 mb-2">PARA</h3>
+        <input type="text" class="font-medium text-lg text-gray-900 border-b border-gray-300 w-full focus:outline-none" value="[Nome do Cliente]" />
+        <input type="text" class="mt-2 text-gray-700 w-full border-b border-gray-300 focus:outline-none" value="[CNPJ do Cliente]" />
+        <input type="email" class="mt-2 text-gray-700 w-full border-b border-gray-300 focus:outline-none" value="[Email do Cliente]" />
+        <input type="tel" class="mt-2 text-gray-700 w-full border-b border-gray-300 focus:outline-none" value="[Telefone do Cliente]" />
+      </div>
+    </div>
+
+    <!-- Tabela de produtos -->
+    <div class="mt-6 px-6">
+      <table class="w-full text-left border border-gray-200 rounded overflow-hidden">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-4 py-2">Descrição</th>
+            <th class="px-4 py-2 text-center">Qtd</th>
+            <th class="px-4 py-2 text-right">Unitário</th>
+            <th class="px-4 py-2 text-right">Total</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+          <tr>
+            <td class="px-4 py-3">
+              <input type="text" class="bg-transparent w-full border-0 focus:outline-none" value="Módulo de Integração ERP" />
+              <p class="text-xs text-gray-500">Licença mensal - Plano Business</p>
+            </td>
+            <td class="text-center px-4 py-3"><input type="number" class="w-16 text-center border-0 focus:outline-none" value="1" /></td>
+            <td class="text-right px-4 py-3"><input type="text" class="w-32 text-right border-0 focus:outline-none" value="R$ 297,00" /></td>
+            <td class="text-right px-4 py-3"><input type="text" class="w-32 text-right border-0 focus:outline-none" value="R$ 297,00" /></td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">
+              <input type="text" class="bg-transparent w-full border-0 focus:outline-none" value="Suporte Premium" />
+              <p class="text-xs text-gray-500">Atendimento prioritário 24/7</p>
+            </td>
+            <td class="text-center px-4 py-3"><input type="number" class="w-16 text-center border-0 focus:outline-none" value="1" /></td>
+            <td class="text-right px-4 py-3"><input type="text" class="w-32 text-right border-0 focus:outline-none" value="R$ 97,00" /></td>
+            <td class="text-right px-4 py-3"><input type="text" class="w-32 text-right border-0 focus:outline-none" value="R$ 97,00" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Totais -->
+    <div class="mt-6 flex justify-end px-6">
+      <div class="w-64">
+        <div class="flex justify-between py-1">
+          <span class="text-gray-700">Subtotal</span>
+          <span>R$ 394,00</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span class="text-gray-700">Desconto</span>
+          <span class="text-green-600">- R$ 39,40</span>
+        </div>
+        <div class="flex justify-between py-2 border-t border-gray-300 font-bold text-blue-700">
+          <span>Total</span>
+          <span>R$ 354,60</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Informações de pagamento -->
+    <div class="mt-8 px-6">
+      <h3 class="font-semibold text-gray-800 mb-2">Informações de Pagamento</h3>
+      <div class="bg-blue-50 border border-blue-100 rounded-md p-4">
+        <p><strong>Banco:</strong> XXX - Banco XXXXX</p>
+        <p><strong>Agência:</strong> XXXX</p>
+        <p><strong>Conta:</strong> XXXXX-X</p>
+        <p><strong>PIX:</strong> CNPJ XX.XXX.XXX/0001-XX</p>
+      </div>
+    </div>
+
+    <!-- Observações -->
+    <div class="mt-6 px-6">
+      <h3 class="font-semibold text-gray-800 mb-2">Observações:</h3>
+      <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+        <li>Fatura válida por 5 dias úteis</li>
+        <li>Em caso de dúvidas, entre em contato com nosso suporte</li>
+        <li>Após confirmação do pagamento, o acesso será liberado em até 24 horas</li>
+      </ul>
+    </div>
+
+    <!-- Rodapé dentro do container -->
+    <div class="text-center text-xs text-gray-500 border-t border-gray-300 mt-6 py-4">
+      <p>NGESTOR - Integração Inteligente para Gestão Empresarial</p>
+      <p>Documento processado por computador. Não necessita de assinatura.</p>
+    </div>
+
+    <!-- Botões -->
+    <div class="flex justify-between mt-8 px-6 no-print">
+      <button onclick="saveInvoice()" class="px-4 py-2 bg-green-500 text-white font-semibold rounded-md shadow hover:bg-green-600">Salvar</button>
+      <button onclick="printInvoice()" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md shadow hover:bg-blue-600">Imprimir</button>
+    </div>
+  </div>
+</body>
+</html>
+

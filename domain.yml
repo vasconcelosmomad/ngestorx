@@ -1,0 +1,49 @@
+version: '3.1'
+intents:
+  - greet
+  - goodbye
+  - ngestor_features
+  - pricing
+  - support
+  - mood_great
+  - mood_unhappy
+  - affirm
+  - deny
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Olá! Sou o assistente do Ngestor. Como posso ajudar?"
+  
+  utter_goodbye:
+    - text: "Até logo! Se precisar de algo, estou à disposição."
+  
+  utter_ngestor_features:
+    - text: "Ngestor oferece:
+      - Controle de Estoque
+      - Gestão de Vendas
+      - Emissão de Faturas
+      - Relatórios Financeiros"
+  
+  utter_pricing:
+    - text: "Temos 3 planos:
+      - Básico: R$ 49,90/mês
+      - Intermediário: R$ 99,90/mês
+      - Avançado: R$ 199,90/mês"
+  
+  utter_support:
+    - text: "Suporte Ngestor:
+      - Email: suporte@ngestor.com
+      - Telefone: +258 84 000 0000"
+  
+  utter_iamabot:
+    - text: "Sou um assistente virtual do Ngestor."
+  
+  utter_happy:
+    - text: "Fico feliz que esteja satisfeito!"
+  
+  utter_cheer_up:
+    - text: "Posso ajudar você de alguma forma?"
+
+actions:
+  - action_default_fallback 

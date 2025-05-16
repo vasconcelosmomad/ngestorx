@@ -1,0 +1,20 @@
+{
+  "authHost": "http://localhost",
+  "authEndpoint": "/broadcasting/auth",
+  "database": "redis",
+  "databaseConfig": {
+    "host": "redis"
+  },
+  "devMode": true,
+  "host": "0.0.0.0",
+  "port": 6001,
+  "protocol": "http",
+  "socketio": {
+    "cors": {
+      "origin": "*"
+    }
+  },
+  "sslCertPath": null,
+  "sslKeyPath": null,
+  "verifyAuthPath": true
+}

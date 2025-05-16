@@ -1,0 +1,1 @@
+# Guia de Criação de Release Candidates (RC)

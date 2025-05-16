@@ -1,0 +1,23 @@
+{
+  "editor": {
+    "autocomplete": {
+      "enabled": true,
+      "languages": ["php", "blade", "javascript", "html", "css"],
+      "priority": {
+        "frameworks": ["laravel"]
+      }
+    }
+  },
+  "codebase": {
+    "context": {
+      "importantFiles": [
+        "composer.json",
+        "routes/web.php",
+        "app/Http/Controllers/**/*.php",
+        "app/Models/**/*.php",
+        "resources/views/**/*.blade.php"
+      ]
+    }
+  }
+}
+
